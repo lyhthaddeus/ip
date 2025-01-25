@@ -1,6 +1,14 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class Logic {
+
+  private CommandList<Command> commandList;
+
+  public Logic() {
+    this.commandList = new CommandList<>();
+  }
 
   public void start() {
     Scanner scanner = new Scanner(System.in);
@@ -10,11 +18,14 @@ public class Logic {
       System.out.print("How may I assist you commander?\n__________________________________________\n");
       input = scanner.nextLine();
 
-      if (input.toLowerCase().equals("bye")) {
+      if (input.equalsIgnoreCase("bye")) {
         System.out.println("Bye, hope to see you again commander.\n__________________________________________\n");
         break;
+      } else if (input.equalsIgnoreCase("list")) {
+        System.out.println(commandList.toString());
       } else {
-        System.out.println("You command was " + input + "\n__________________________________________\n");
+        commandList.add(new Command(input));
+        System.out.println("Added " + input + "\n__________________________________________\n");
       }
     }
   }
