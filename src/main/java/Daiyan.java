@@ -5,7 +5,7 @@ public class Daiyan {
                       "| _) \\ / () \\ | |\\ \\/ // () \\ |  \\| |\n" +
                       "|____//__/\\__\\|_| |__|/__\\/__\\|_|\\__|"; 
     System.out.println(asciiArt);
-    System.out.println("__________________________________________\nHello I'm Daiyan\nWhat can I do for you?\n__________________________________________\nBye. Hope to see you again soon!");
+    System.out.println("__________________________________________\nHello I'm Daiyan\nWhat can I do for you?\n__________________________________________\n");
     Logic logic = new Logic();
     logic.start();
   }
