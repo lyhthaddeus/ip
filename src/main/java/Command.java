@@ -15,18 +15,16 @@ public class Command {
     return (completed? "X" : " ");
   }
 
-  public String markDone() {
+  public void markDone() {
     this.completed = true;
-    return this.toString();
   }
 
-  public String markUndone() {
+  public void markUndone() {
     this.completed = false;
-    return this.toString();
   }
 
   @Override
   public String toString() {
-    return "[" + this.getStatus() + "]" + this.getDescription();
+    return "[" + this.getStatus() + "] " + this.getDescription();
   }
 }

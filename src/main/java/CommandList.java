@@ -11,18 +11,34 @@ public class CommandList<T extends Command> {
 
   public void add(T command) {
     this.commandList.add(command);
+    System.out.println("Task has been successfully added");
+    System.out.println(command.toString());
+    this.count();
   }
 
-  public String mark(String ids) {
+  public void mark(String ids) {
     int id = Integer.parseInt(ids);
-    return this.commandList.get(id - 1).markDone();
-
+    this.commandList.get(id - 1).markDone();
+    System.out.println("Commander, task " + ids + " has been marked completed");
+    System.out.println(commandList.get(id - 1).toString() + "\n__________________________________________\n");
   }
 
-  public String unmark(String ids) {
+  public void unmark(String ids) {
     int id = Integer.parseInt(ids);
-    return this.commandList.get(id - 1).markUndone();
-	}
+    System.out.println("Commander, taks " + ids + " has been mark incomplete");
+    this.commandList.get(id - 1).markUndone();
+    System.out.println(commandList.get(id - 1).toString() + "\n__________________________________________\n");
+  }
+
+  public void count() {
+    int count = this.commandList.size();
+    System.out.println("Commander, you currently have " + count + " tasks" + "\n__________________________________________\n");
+  }
+
+  public void getList() {
+    System.out.println(this.toString());
+    System.out.println("__________________________________________\n");
+  }
 
   public String toString() {
     StringBuilder result = new StringBuilder();
