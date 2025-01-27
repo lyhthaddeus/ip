@@ -1,7 +1,9 @@
 package TaskObjects;
 
 import Exception.InvalidInputException;
-public class Command {
+import Interface.ICommand;
+
+public abstract class Command implements ICommand {
   
   private String description = "";
   private boolean completed;
@@ -14,10 +16,10 @@ public class Command {
     }
   }
 
-  public String getDescription() {
+  private String getDescription() {
     return this.description;
   }
-  public String getStatus() {
+  private String getStatus() {
     return (completed? "X" : " ");
   }
 

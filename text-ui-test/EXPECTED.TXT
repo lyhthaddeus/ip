@@ -8,6 +8,9 @@ __________________________________________
 
 How may I assist you commander?
 __________________________________________
+Commander, currently you have no outstanding task
+__________________________________________
+
 Task has been successfully added
 [T][ ] task
 Commander, you currently have 1 tasks
@@ -29,13 +32,44 @@ __________________________________________
 
 __________________________________________
 
+Commander, the task has been successfully deleted
+[T][ ] task
+Commander, you currently have 2 tasks
+__________________________________________
+
+1. [D][ ] task (by: 1600)
+2. [E][ ] task (from: 1600 to: 1900)
+
+__________________________________________
+
 Sorry Commander, but I do not understand your orders.
 __________________________________________
 
-Apologies Commander, invalid Event format. Please use event <Task> /from <Time> /to <Time>.
+Sorry Commander, but I do not understand your orders.
 __________________________________________
 
-Apologies Commander, invalid Deadline format. Please use deadline <Task> /by <Time>.
+Apologies Commander, invalid mark format. Please use (mark <index of item>).
+__________________________________________
+
+Apologies Commander, invalid unmark format. Please use (unmark <index of item>).
+__________________________________________
+
+Apologies Commander, invalid delete format. Please use (delete <index of item>).
+__________________________________________
+
+Apologies Commander, invalid Todo format. Please use (todo <Task>).
+__________________________________________
+
+Apologies Commander, invalid Deadline format. Please use (deadline <Task> /by <Time>).
+__________________________________________
+
+Apologies Commander, invalid Event format. Please use (event <Task> /from <Time> /to <Time>).
+__________________________________________
+
+Apologies Commander, invalid Event format. Please use (event <Task> /from <Time> /to <Time>).
+__________________________________________
+
+Apologies Commander, invalid Deadline format. Please use (deadline <Task> /by <Time>).
 __________________________________________
 
 Sorry Commander, but there is missing data

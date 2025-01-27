@@ -33,14 +33,26 @@ public class Logic {
             commandList.getList();
             break;
           case("mark"):
+            if (parsed.length < 2) {
+              throw new SyntaxException("mark", "mark <index of item>");
+            }
             commandList.mark(parsed[1]);
             break;
           case("unmark"):
+            if (parsed.length < 2) {
+              throw new SyntaxException("unmark", "unmark <index of item>");
+            }
             commandList.unmark(parsed[1]);
+            break;
+          case ("delete"), ("del"):
+            if (parsed.length < 2) {
+              throw new SyntaxException("delete", "delete <index of item>");
+            }
+            commandList.delete(parsed[1]);
             break;
           case("todo"):
             if (parsed.length < 2) {
-              throw new SyntaxException("Event", "event <Task> /from <Time> /to <Time>");
+              throw new SyntaxException("Todo", "todo <Task>");
             }
             commandList.add(new Todo(parsed[1]));
             break;

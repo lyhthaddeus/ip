@@ -19,6 +19,14 @@ public class CommandList<T extends Command> {
     this.count();
   }
 
+  public void delete(String ids) {
+    int id = Integer.parseInt(ids);
+    T deleted = this.commandList.remove(id - 1);
+    System.out.println("Commander, the task has been successfully deleted");
+    System.out.println(deleted.toString());
+    this.count();
+  } 
+
   public void mark(String ids) {
     int id = Integer.parseInt(ids);
     this.commandList.get(id - 1).markDone();
@@ -44,6 +52,9 @@ public class CommandList<T extends Command> {
   }
 
   public String toString() {
+    if (commandList.isEmpty()) {
+      return "Commander, currently you have no outstanding task";
+    }
     StringBuilder result = new StringBuilder();
     int count = 0;
     for (T command: commandList) {
