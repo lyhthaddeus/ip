@@ -4,6 +4,7 @@ import java.util.Scanner;
 import DataStructure.CommandList;
 import TaskObjects.*;
 
+import Enums.CommandTypes;
 import Exception.InvalidInputException;
 import Exception.SyntaxException;
 
@@ -23,40 +24,41 @@ public class Logic {
     while(true) {
       input = scanner.nextLine().trim();
       String[] parsed = input.split(" ", 2);
+      CommandTypes commandTypes = CommandTypes.fromString(parsed[0]);
 
       try {
-        switch (parsed[0].toLowerCase()) {
-          case ("bye"), ("q"):
+        switch (commandTypes) {
+          case BYE, Q:
             System.out.println("Bye, hope to see you again Commander.\n__________________________________________\n");
             return;
-          case ("list"), ("ls"):
+          case LIST, LS:
             commandList.getList();
             break;
-          case("mark"):
+          case MARK:
             if (parsed.length < 2) {
               throw new SyntaxException("mark", "mark <index of item>");
             }
             commandList.mark(parsed[1]);
             break;
-          case("unmark"):
+          case UNMARK:
             if (parsed.length < 2) {
               throw new SyntaxException("unmark", "unmark <index of item>");
             }
             commandList.unmark(parsed[1]);
             break;
-          case ("delete"), ("del"):
+          case DELETE, DEL:
             if (parsed.length < 2) {
               throw new SyntaxException("delete", "delete <index of item>");
             }
             commandList.delete(parsed[1]);
             break;
-          case("todo"):
+          case TODO:
             if (parsed.length < 2) {
               throw new SyntaxException("Todo", "todo <Task>");
             }
             commandList.add(new Todo(parsed[1]));
             break;
-          case("deadline"):
+          case DEADLINE:
             if (parsed.length < 2) {
               throw new SyntaxException("Deadline", "deadline <Task> /by <Time>");
             }
@@ -68,7 +70,7 @@ public class Logic {
             String deadlineBy = deadlinePartition[1].trim();
             commandList.add(new Deadline(deadlineDescription, deadlineBy));
             break;
-          case("event"):
+          case EVENT:
             if (parsed.length < 2) {
               throw new SyntaxException("Event", "event <Task> /from <Time> /to <Time>");
             }
