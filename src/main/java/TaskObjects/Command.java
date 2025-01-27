@@ -1,11 +1,17 @@
+package TaskObjects;
+
+import Exception.InvalidInputException;
 public class Command {
   
   private String description = "";
   private boolean completed;
 
-  public Command(String description) {
+  public Command(String description) throws InvalidInputException {
     this.description = description;
     this.completed = false;
+    if (description == null) {
+      throw new InvalidInputException("Sorry Commander, but there is missing data");
+    }
   }
 
   public String getDescription() {

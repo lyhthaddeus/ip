@@ -1,7 +1,49 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+ ____   ____   _ __  __ ____   __  _ 
+| _) \ / () \ | |\ \/ // () \ |  \| |
+|____//__/\__\|_| |__|/__\/__\|_|\__|
+__________________________________________
+Hello I'm Daiyan
+What can I do for you?
+__________________________________________
+
+How may I assist you commander?
+__________________________________________
+Task has been successfully added
+[T][ ] task
+Commander, you currently have 1 tasks
+__________________________________________
+
+Task has been successfully added
+[D][ ] task (by: 1600)
+Commander, you currently have 2 tasks
+__________________________________________
+
+Task has been successfully added
+[E][ ] task (from: 1600 to: 1900)
+Commander, you currently have 3 tasks
+__________________________________________
+
+1. [T][ ] task
+2. [D][ ] task (by: 1600)
+3. [E][ ] task (from: 1600 to: 1900)
+
+__________________________________________
+
+Sorry Commander, but I do not understand your orders.
+__________________________________________
+
+Apologies Commander, invalid Event format. Please use event <Task> /from <Time> /to <Time>.
+__________________________________________
+
+Apologies Commander, invalid Deadline format. Please use deadline <Task> /by <Time>.
+__________________________________________
+
+Sorry Commander, but there is missing data
+__________________________________________
+
+Sorry Commander, but there is missing data
+__________________________________________
+
+Bye, hope to see you again Commander.
+__________________________________________
 

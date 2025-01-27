@@ -1,3 +1,5 @@
+import Controller.Logic;
+
 public class Daiyan {
 
   public static void main(String[] args) {
