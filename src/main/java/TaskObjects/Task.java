@@ -3,15 +3,17 @@ package TaskObjects;
 import Exception.InvalidInputException;
 import Interface.ICommand;
 
-public abstract class Command implements ICommand {
+public abstract class Task implements ICommand {
   
   private String description = "";
-  private boolean completed;
+  private boolean isCompleted;
+  private final String type;
 
-  public Command(String description) throws InvalidInputException {
+  public Task(String description, boolean isCompleted, String type) throws InvalidInputException {
     this.description = description;
-    this.completed = false;
-    if (description == null) {
+    this.isCompleted = isCompleted;
+    this.type = type;
+    if (description == null || type == null) {
       throw new InvalidInputException("Sorry Commander, but there is missing data");
     }
   }
@@ -20,15 +22,19 @@ public abstract class Command implements ICommand {
     return this.description;
   }
   private String getStatus() {
-    return (completed? "X" : " ");
+    return (isCompleted? "X" : " ");
   }
 
   public void markDone() {
-    this.completed = true;
+    this.isCompleted = true;
   }
 
   public void markUndone() {
-    this.completed = false;
+    this.isCompleted = false;
+  }
+
+  public String toFileFormat() {
+    return this.type + " | " + this.isCompleted + " | " + this.description;
   }
 
   @Override

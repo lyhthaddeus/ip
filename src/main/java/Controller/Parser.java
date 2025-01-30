@@ -1,25 +1,27 @@
 package Controller;
 
+import java.io.IOException;
 import java.util.Scanner;
-import DataStructure.CommandList;
+import DataStructure.TaskList;
 import TaskObjects.*;
 
 import Enums.CommandTypes;
 import Exception.InvalidInputException;
 import Exception.SyntaxException;
 
-public class Logic {
+public class Parser {
 
-  private CommandList<Command> commandList;
+  private TaskList<Task> taskList;
+  private static final String LINE_BREAK = "\n__________________________________________\n";
 
-  public Logic() {
-    this.commandList = new CommandList<>();
+  public Parser() {
   }
 
   public void start() {
     Scanner scanner = new Scanner(System.in);
     String input;
-    System.out.print("How may I assist you commander?\n__________________________________________\n");
+    System.out.print("How may I assist you commander?" + LINE_BREAK);
+    this.taskList = Storage.load();
 
     while(true) {
       input = scanner.nextLine().trim();
@@ -29,34 +31,34 @@ public class Logic {
       try {
         switch (commandTypes) {
           case BYE, Q:
-            System.out.println("Bye, hope to see you again Commander.\n__________________________________________\n");
+            System.out.println("Bye, hope to see you again Commander." + LINE_BREAK);
             return;
           case LIST, LS:
-            commandList.getList();
+            taskList.getList();
             break;
           case MARK:
             if (parsed.length < 2) {
               throw new SyntaxException("mark", "mark <index of item>");
             }
-            commandList.mark(parsed[1]);
+            taskList.mark(parsed[1]);
             break;
           case UNMARK:
             if (parsed.length < 2) {
               throw new SyntaxException("unmark", "unmark <index of item>");
             }
-            commandList.unmark(parsed[1]);
+            taskList.unmarked(parsed[1]);
             break;
           case DELETE, DEL:
             if (parsed.length < 2) {
               throw new SyntaxException("delete", "delete <index of item>");
             }
-            commandList.delete(parsed[1]);
+            taskList.delete(parsed[1]);
             break;
           case TODO:
             if (parsed.length < 2) {
               throw new SyntaxException("Todo", "todo <Task>");
             }
-            commandList.add(new Todo(parsed[1]));
+            taskList.add(new Todo(parsed[1], false));
             break;
           case DEADLINE:
             if (parsed.length < 2) {
@@ -68,7 +70,7 @@ public class Logic {
             }
             String deadlineDescription = deadlinePartition[0].trim();
             String deadlineBy = deadlinePartition[1].trim();
-            commandList.add(new Deadline(deadlineDescription, deadlineBy));
+            taskList.add(new Deadline(deadlineDescription, false,deadlineBy));
             break;
           case EVENT:
             if (parsed.length < 2) {
@@ -85,13 +87,13 @@ public class Logic {
             }
             String eventFrom = eventPartition2[0].trim();
             String eventTo = eventPartition2[1].trim();
-            commandList.add(new Event(eventDescription, eventFrom, eventTo));
+            taskList.add(new Event(eventDescription, false, eventFrom, eventTo));
             break;
           default:
             throw new InvalidInputException("Sorry Commander, but I do not understand your orders.");
         }
       } catch (InvalidInputException e) {
-        System.out.println(e.getMessage() + "\n__________________________________________\n");
+        System.out.println(e.getMessage() + LINE_BREAK);
       }
     }
   }

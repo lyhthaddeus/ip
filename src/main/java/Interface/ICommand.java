@@ -4,4 +4,7 @@ public interface ICommand {
     public void markDone();
     public void markUndone();
     public String toString();
+
+    public String toFileFormat();
+
 }
