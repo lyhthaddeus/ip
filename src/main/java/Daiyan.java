@@ -1,4 +1,4 @@
-import Controller.Logic;
+import Controller.Parser;
 
 public class Daiyan {
 
@@ -8,7 +8,7 @@ public class Daiyan {
                       "|____//__/\\__\\|_| |__|/__\\/__\\|_|\\__|"; 
     System.out.println(asciiArt);
     System.out.println("__________________________________________\nHello I'm Daiyan\nWhat can I do for you?\n__________________________________________\n");
-    Logic logic = new Logic();
-    logic.start();
+    Parser parser = new Parser();
+    parser.start();
   }
 }
