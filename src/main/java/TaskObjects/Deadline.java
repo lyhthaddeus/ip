@@ -1,14 +1,24 @@
 package TaskObjects;
 
 import Exception.InvalidInputException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Deadline extends Task {
   
-  private String byWhen;
+  private LocalDateTime byWhen;
 
-  public Deadline(String description, boolean isCompleted, String by) throws InvalidInputException {
+  private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+  private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy, h:mma");
+
+  public Deadline(String description, boolean isCompleted, String byWhen) throws InvalidInputException {
     super(description, isCompleted, "D");
-    this.byWhen = by;
+    try {
+      this.byWhen = LocalDateTime.parse(byWhen, INPUT_FORMAT);
+    } catch (DateTimeParseException e) {
+      throw new InvalidInputException("Invalid date format Commander. Pleaser use d/M/yyyy HHmm (e.g., 2/12/1989 1800).");
+    }
 
     if (description.isBlank() || byWhen.isBlank()) {
       throw new InvalidInputException("Sorry Commander, but there is missing data");
@@ -22,6 +32,6 @@ public class Deadline extends Task {
 
   @Override
   public String toString() {
-    return "[D]" + super.toString() + " (by: " + this.byWhen + ")";
+    return "[D]" + super.toString() + " (by: " + this.byWhen.format(OUTPUT_FORMAT) + ")";
   }
 }
