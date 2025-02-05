@@ -1,10 +1,10 @@
 package Interface;
 
+import DataStructure.TaskList;
+import Exception.InvalidInputException;
+import Controller.Ui;
+
 public interface ICommand {
-    public void markDone();
-    public void markUndone();
-    public String toString();
-
-    public String toFileFormat();
-
+    public void execute(TaskList taskList, Ui ui) throws InvalidInputException;
+    public boolean isExit();
 }

@@ -1,7 +1,7 @@
 list
-todo task
-deadline task /by 1600
-event task /from 1600 /to 1900
+todo abstractTask
+deadline abstractTask /by 1600
+event abstractTask /from 1600 /to 1900
 list
 delete 1
 ls 

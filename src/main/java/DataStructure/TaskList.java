@@ -1,80 +1,67 @@
 package DataStructure;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Controller.Storage;
-import TaskObjects.Task;
+import TaskObjects.AbstractTask;
 
-public class TaskList<T extends Task> {
+public class TaskList {
 
-  private List<T> TaskList;
+  private List<AbstractTask> tasklist;
 
   public TaskList() {
-    this.TaskList = new ArrayList<>();
+      this.tasklist = new ArrayList<>();
   }
 
-  private static final String LINE_BREAK = "\n__________________________________________\n";
+  public List<AbstractTask> getlist() {
+      return this.tasklist;
+  }
 
 
-  public void load(T task) {
-    this.TaskList.add(task);
+  public void load(AbstractTask task) {
+    this.tasklist.add(task);
  }
 
-  public void add(T task) {
-    this.TaskList.add(task);
-    Storage.save(this.TaskList);
-
-    System.out.println("Task has been successfully added");
-    System.out.println(task.toString());
-    this.count();
+  public String add(AbstractTask task) {
+    this.tasklist.add(task);
+    return ("Task has been successfully added\n" + task.toString() + "\n" + this.count());
   }
 
-  public void delete(String ids) {
-    int id = Integer.parseInt(ids);
-    T deleted = this.TaskList.remove(id - 1);
-    Storage.save(this.TaskList);
-
-    System.out.println("Commander, the task has been successfully deleted");
-    System.out.println(deleted.toString());
-    this.count();
+  public String delete(int id) {
+    AbstractTask deletedTask = this.tasklist.remove(id - 1);
+    return ("Commander, the task has been successfully deleted\n" + deletedTask.toString()
+            + "\n" + this.count());
   } 
 
-  public void mark(String ids) {
-    int id = Integer.parseInt(ids);
-    this.TaskList.get(id - 1).markDone();
-    Storage.save(this.TaskList);
-
-    System.out.println("Commander, task " + ids + " has been marked completed");
-    System.out.println(TaskList.get(id - 1).toString() + LINE_BREAK);
+  public String mark(int id) {
+    this.tasklist.get(id - 1).markDone();
+    return ("Commander, task " + id + " has been marked completed\n"
+            + tasklist.get(id - 1).toString());
   }
 
-  public void unmarked(String ids) {
-    int id = Integer.parseInt(ids);
-    this.TaskList.get(id - 1).markUndone();
-    Storage.save(this.TaskList);
-
-    System.out.println("Commander, taks " + ids + " has been mark incomplete");
-    System.out.println(TaskList.get(id - 1).toString() + LINE_BREAK);
+  public String unmarked(int id) {
+    this.tasklist.get(id - 1).markUndone();
+    return ("Commander, taks " + id + " has been mark incomplete\n"
+            + tasklist.get(id - 1).toString());
   }
 
-  public void count() {
-    int count = this.TaskList.size();
-    System.out.println("Commander, you currently have " + count + " tasks" + LINE_BREAK);
+  public String count() {
+    int count = this.tasklist.size();
+    return "Commander, you currently have " + count + " tasks";
   }
 
-  public void getList() {
-    System.out.println(this.toString() + LINE_BREAK);
+  public String getTaskList() {
+   return this.toString();
   }
 
   public String toString() {
-    if (TaskList.isEmpty()) {
+    if (tasklist.isEmpty()) {
       return "Commander, currently you have no outstanding task";
     }
     StringBuilder result = new StringBuilder();
     int count = 0;
-    for (T command: TaskList) {
+    for (AbstractTask command: tasklist) {
       count++;
       result.append(count).append(". ").append(command).append("\n");
     }

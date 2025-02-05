@@ -1,15 +1,15 @@
 package TaskObjects;
 
 import Exception.InvalidInputException;
-import Interface.ICommand;
+import Interface.ITask;
 
-public abstract class Task implements ICommand {
+public abstract class AbstractTask implements ITask {
   
   private String description = "";
   private boolean isCompleted;
   private final String type;
 
-  public Task(String description, boolean isCompleted, String type) throws InvalidInputException {
+  public AbstractTask(String description, boolean isCompleted, String type) throws InvalidInputException {
     this.description = description;
     this.isCompleted = isCompleted;
     this.type = type;
