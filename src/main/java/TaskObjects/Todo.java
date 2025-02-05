@@ -1,7 +1,7 @@
 package TaskObjects;
 
 import Exception.InvalidInputException;
-public class Todo extends Task {
+public class Todo extends AbstractTask {
   
   public Todo(String description, boolean isCompleted) throws InvalidInputException {
     super(description, isCompleted,"T");
