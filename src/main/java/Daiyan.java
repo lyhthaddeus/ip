@@ -8,9 +8,9 @@ import Exception.SyntaxException;
 
 public class Daiyan {
 
-  private Storage storage;
+  private final Storage storage;
   private TaskList taskList;
-  private Ui ui;
+  private final Ui ui;
 
   public Daiyan(String filePath) {
     this.ui = new Ui();
