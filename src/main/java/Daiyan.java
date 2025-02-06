@@ -13,9 +13,9 @@ import Exception.SyntaxException;
  */
 public class Daiyan {
 
-    private Storage storage;
-    private TaskList taskList;
-    private Ui ui;
+  private final Storage storage;
+  private TaskList taskList;
+  private final Ui ui;
 
     /**
      * Constructs a new instance of the Daiyan application.
