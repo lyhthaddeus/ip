@@ -3,42 +3,83 @@ package TaskObjects;
 import Exception.InvalidInputException;
 import Interface.ITask;
 
+/**
+ * Abstract {@code AbstractTask} class that encapsulate parent behaviour of all Task
+ */
 public abstract class AbstractTask implements ITask {
-  
-  private String description = "";
-  private boolean isCompleted;
-  private final String type;
 
-  public AbstractTask(String description, boolean isCompleted, String type) throws InvalidInputException {
-    this.description = description;
-    this.isCompleted = isCompleted;
-    this.type = type;
-    if (description == null || type == null) {
-      throw new InvalidInputException("Sorry Commander, but there is missing data");
+    private String description = "";
+    private boolean isCompleted;
+    private final String type;
+
+    /**
+     * Constructs a {@code AbstractTask} instance
+     *
+     * @param description Simple description of the task
+     * @param isCompleted Status of completion of the task
+     * @param type        The type of task
+     * @throws InvalidInputException if input is invalid or in wrong format
+     */
+    public AbstractTask(String description, boolean isCompleted, String type)
+            throws InvalidInputException {
+        this.description = description;
+        this.isCompleted = isCompleted;
+        this.type = type;
+        if (description == null || type == null) {
+            throw new InvalidInputException("Sorry Commander, but there is missing data");
+        }
     }
-  }
 
-  private String getDescription() {
-    return this.description;
-  }
-  private String getStatus() {
-    return (isCompleted? "X" : " ");
-  }
+    /**
+     * Gets the description of the task
+     *
+     * @return The description of the task
+     */
+    private String getDescription() {
+        return this.description;
+    }
 
-  public void markDone() {
-    this.isCompleted = true;
-  }
+    /**
+     * aets the completion status of the taks
+     *
+     * @return The completion status of the task
+     */
+    private String getStatus() {
+        return (isCompleted ? "X" : " ");
+    }
 
-  public void markUndone() {
-    this.isCompleted = false;
-  }
+    /**
+     * Marks the task to be completed
+     */
+    public void markDone() {
+        this.isCompleted = true;
+    }
 
-  public String toFileFormat() {
-    return this.type + " | " + this.isCompleted + " | " + this.description;
-  }
+    /**
+     * Marks the task as incomplete
+     */
+    public void markUndone() {
+        this.isCompleted = false;
+    }
 
-  @Override
-  public String toString() {
-    return "[" + this.getStatus() + "] " + this.getDescription();
-  }
+    /**
+     * Converts the task to a String format to be saved in storage
+     *
+     * @return String representation of task to be saved in storage
+     */
+    public String toFileFormat() {
+        return this.type + " | " + this.isCompleted + " | "
+                + this.description;
+    }
+
+    /**
+     * Get the String representation of Task
+     *
+     * @return String representation of Task
+     */
+    @Override
+    public String toString() {
+        return "[" + this.getStatus() + "] "
+                + this.getDescription();
+    }
 }

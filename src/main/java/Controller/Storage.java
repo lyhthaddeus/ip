@@ -2,18 +2,36 @@ package Controller;
 
 import DataStructure.TaskList;
 import TaskObjects.*;
+
 import java.io.*;
 import java.util.List;
+
 import Exception.InvalidInputException;
 import Exception.StorageSyntaxException;
 
+/**
+ * {@code Storage} class responsible for storage of persistent data
+ */
 public class Storage {
     private final String filePath;
 
+    /**
+     * Constructs a {@code Storage} class with the relevant file path
+     * to store the persistent data
+     *
+     * @param filePath The String file path of where the data will be
+     *                 stored
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads from data the list of task that were saved
+     *
+     * @return a {@code TaskList} class with all saved task loaded in
+     * @throws InvalidInputException if input is invalid or in wrong format
+     */
     public TaskList load() throws InvalidInputException {
         TaskList taskList = new TaskList();
         File file = new File(this.filePath);
@@ -38,6 +56,11 @@ public class Storage {
         return taskList;
     }
 
+    /**
+     * Saves task from current instance into persistent data
+     *
+     * @param taskList {@code TaskList} class that was used in the current session
+     */
     public void save(List<? extends AbstractTask> taskList) {
         File file = new File(this.filePath);
         file.getParentFile().mkdirs();
@@ -47,7 +70,7 @@ public class Storage {
                 file.createNewFile();
             }
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                 for (AbstractTask abstractTask : taskList) {
                     writer.write(abstractTask.toFileFormat());
                     writer.newLine();
@@ -58,6 +81,13 @@ public class Storage {
         }
     }
 
+    /**
+     * Util function to parse plain text data into {@code AbstractTask} class
+     *
+     * @param input raw String input from the data
+     * @return {@code AbstractTask} class respective to the String input
+     * @throws InvalidInputException if input is invalid or in wrong format
+     */
     private AbstractTask parser(String input) throws InvalidInputException {
         String[] split = input.split(" \\| ");
 
@@ -68,17 +98,17 @@ public class Storage {
         AbstractTask returnAbstractTask;
 
         switch (type) {
-            case "T":
-                returnAbstractTask = new Todo(description, isCompleted);
-                break;
-            case "D":
-                returnAbstractTask = new Deadline(description, isCompleted, split[3].trim());
-                break;
-            case "E":
-                returnAbstractTask = new Event(description, isCompleted, split[3].trim(), split[4].trim());
-                break;
-            default:
-                throw new StorageSyntaxException();
+        case "T":
+            returnAbstractTask = new Todo(description, isCompleted);
+            break;
+        case "D":
+            returnAbstractTask = new Deadline(description, isCompleted, split[3].trim());
+            break;
+        case "E":
+            returnAbstractTask = new Event(description, isCompleted, split[3].trim(), split[4].trim());
+            break;
+        default:
+            throw new StorageSyntaxException();
         }
 
         return returnAbstractTask;

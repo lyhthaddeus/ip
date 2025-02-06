@@ -1,5 +1,8 @@
 package Enums;
 
+/**
+ * Enum of all possible commands
+ */
 public enum CommandTypes {
     TODO,
     DEADLINE,
@@ -14,7 +17,12 @@ public enum CommandTypes {
     DEL,
     INVALID;
 
-    // Static method to map a command string to the corresponding enum
+    /**
+     * Static method to parse command from String to the respective enum
+     *
+     * @param command raw String input of the command
+     * @return String formatted to uppercase or Invalid if not found in enum
+     */
     public static CommandTypes fromString(String command) {
         try {
             return CommandTypes.valueOf(command.toUpperCase());
