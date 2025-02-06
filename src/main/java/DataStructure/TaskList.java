@@ -21,6 +21,28 @@ public class TaskList {
     }
 
     /**
+     * Filters the list for task with description that matches keyword
+     *
+     * @param keyword String to be matched with
+     * @return Filtered list with Task description matching keyword
+     */
+    public String find(String keyword) {
+        List<AbstractTask> filteredList = new ArrayList<>();
+        filteredList = this.tasklist.stream().filter(x -> x.getDescription()
+                .contains(keyword)).toList();
+        if (filteredList.isEmpty()) {
+            return "Sorry Commander, I couldn't find any task that fit your description";
+        }
+        StringBuilder result = new StringBuilder();
+        int count = 0;
+        for (AbstractTask task : filteredList) {
+            count++;
+            result.append(count).append(". ").append(task).append("\n");
+        }
+        return "Here are the task that matches your search\n" + result.toString();
+    }
+
+    /**
      * Gets the ArrayList containing all the tasks
      *
      * @return List of Task

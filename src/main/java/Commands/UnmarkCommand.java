@@ -29,6 +29,6 @@ public class UnmarkCommand extends AbstractCommand {
      */
     @Override
     public void execute(TaskList taskList, Ui ui) throws InvalidInputException {
-        ui.showTaskMessage(taskList.mark(id));
+        ui.showTaskMessage(taskList.unmarked(id));
     }
 }

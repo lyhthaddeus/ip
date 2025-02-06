@@ -1,10 +1,11 @@
+package app;
+
 import Commands.AbstractCommand;
 import Controller.Parser;
 import Controller.Storage;
 import Controller.Ui;
 import DataStructure.TaskList;
 import Exception.InvalidInputException;
-import Exception.SyntaxException;
 
 /**
  * The main class for the Daiyan task management application.

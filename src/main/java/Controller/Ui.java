@@ -34,7 +34,7 @@ public class Ui {
                 "| _) \\ / () \\ | |\\ \\/ // () \\ |  \\| |\n" +
                 "|____//__/\\__\\|_| |__|/__\\/__\\|_|\\__|";
         System.out.println(asciiArt);
-        System.out.println(LINE_BREAK + "Hello I'm Daiyan What can I do for you?" + LINE_BREAK);
+        System.out.println(LINE_BREAK + "Hello I'm app.Daiyan What can I do for you?" + LINE_BREAK);
         System.out.print("How may I assist you commander?" + LINE_BREAK);
     }
 

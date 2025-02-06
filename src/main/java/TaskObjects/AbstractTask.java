@@ -35,7 +35,7 @@ public abstract class AbstractTask implements ITask {
      *
      * @return The description of the task
      */
-    private String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 

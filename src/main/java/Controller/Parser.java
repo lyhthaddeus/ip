@@ -61,6 +61,12 @@ public class Parser {
             }
             return new DeleteCommand(Integer.parseInt(parsed[1]));
 
+        case FIND:
+          if (parsed.length < 2) {
+            throw new SyntaxException("Find", "Find <keyword>");
+          }
+          return new FindCommand(parsed[1]);
+
         case TODO:
             if (parsed.length < 2) {
                 throw new SyntaxException("Todo", "todo <Task>");
