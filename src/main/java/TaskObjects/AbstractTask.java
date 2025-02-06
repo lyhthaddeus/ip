@@ -11,14 +11,14 @@ public abstract class AbstractTask implements ITask {
 
   public AbstractTask(String description, boolean isCompleted, String type) throws InvalidInputException {
     this.description = description;
-    this.isCompleted = isCompleted;
+    this.isCompleted = false;
     this.type = type;
     if (description == null || type == null) {
       throw new InvalidInputException("Sorry Commander, but there is missing data");
     }
   }
 
-  private String getDescription() {
+  public String getDescription() {
     return this.description;
   }
   private String getStatus() {

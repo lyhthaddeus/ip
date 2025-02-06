@@ -4,15 +4,13 @@ import Controller.Ui;
 import DataStructure.TaskList;
 import Exception.InvalidInputException;
 
-public class UnmarkCommand extends AbstractCommand {
-    private final int id;
-
-    public UnmarkCommand(int id) {
-        this.id = id;
+public class FindCommand extends AbstractCommand {
+    private String keyword;
+    public FindCommand(String keyword) {
+        this.keyword = keyword;
     }
-
     @Override
     public void execute(TaskList taskList, Ui ui) throws InvalidInputException {
-        ui.showTaskMessage(taskList.unmarked(id));
+        ui.showTaskMessage(taskList.find(keyword));
     }
 }

@@ -1,10 +1,11 @@
+package app;
+
 import Commands.AbstractCommand;
 import Controller.Parser;
 import Controller.Storage;
 import Controller.Ui;
 import DataStructure.TaskList;
 import Exception.InvalidInputException;
-import Exception.SyntaxException;
 
 public class Daiyan {
 

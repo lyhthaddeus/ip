@@ -12,7 +12,8 @@ public enum CommandTypes {
     Q,
     DELETE,
     DEL,
-    INVALID;
+    INVALID,
+    FIND;
 
     // Static method to map a command string to the corresponding enum
     public static CommandTypes fromString(String command) {

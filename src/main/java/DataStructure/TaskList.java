@@ -46,13 +46,29 @@ public class TaskList {
             + tasklist.get(id - 1).toString());
   }
 
+  public String find(String keyword) {
+      List<AbstractTask> filteredList = new ArrayList<>();
+      filteredList = this.tasklist.stream().filter(x -> x.getDescription()
+              .contains(keyword)).toList();
+      if (filteredList.isEmpty()) {
+          return "Sorry Commander, I couldn't find any task that fit your description";
+      }
+      StringBuilder result = new StringBuilder();
+      int count = 0;
+      for (AbstractTask task: filteredList) {
+          count++;
+          result.append(count).append(". ").append(task).append("\n");
+      }
+      return "Here are the task that matches your search\n" + result.toString();
+  }
+
   public String count() {
     int count = this.tasklist.size();
     return "Commander, you currently have " + count + " tasks";
   }
 
   public String getTaskList() {
-   return this.toString();
+      return this.toString();
   }
 
   public String toString() {
@@ -61,9 +77,9 @@ public class TaskList {
     }
     StringBuilder result = new StringBuilder();
     int count = 0;
-    for (AbstractTask command: tasklist) {
+    for (AbstractTask task: tasklist) {
       count++;
-      result.append(count).append(". ").append(command).append("\n");
+      result.append(count).append(". ").append(task).append("\n");
     }
 
     return result.toString();
