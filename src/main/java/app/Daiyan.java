@@ -1,11 +1,11 @@
 package app;
 
-import Commands.AbstractCommand;
-import Controller.Parser;
-import Controller.Storage;
-import Controller.Ui;
-import DataStructure.TaskList;
-import Exception.InvalidInputException;
+import commands.AbstractCommand;
+import controller.Parser;
+import controller.Storage;
+import controller.Ui;
+import datastructure.TaskList;
+import exception.InvalidInputException;
 
 /**
  * The main class for the Daiyan task management application.
