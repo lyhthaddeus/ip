@@ -1,6 +1,6 @@
 package commands;
 
-import controller.Ui;
+import controller.Console;
 import datastructure.TaskList;
 import exception.InvalidInputException;
 
@@ -8,14 +8,15 @@ import exception.InvalidInputException;
  * Abstract {@code AbstractCommand} class that encapsulate parent behaviour for all Commands
  */
 public abstract class AbstractCommand {
+    protected String message;
     /**
      * Execution of task to be implemented
      *
      * @param taskList task list that contains all the task
-     * @param ui       user interface that will facilitate printing
+     * @param console       user interface that will facilitate printing
      * @throws InvalidInputException if input is invalid or in wrong format
      */
-    public abstract void execute(TaskList taskList, Ui ui) throws InvalidInputException;
+    public abstract void execute(TaskList taskList, Console console) throws InvalidInputException;
 
     /**
      * State whether this is an exit command or not
@@ -24,5 +25,8 @@ public abstract class AbstractCommand {
      */
     public boolean isExit() {
         return false;
+    }
+    public String getString() {
+        return this.message;
     }
 }

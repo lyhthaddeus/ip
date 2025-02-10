@@ -1,8 +1,8 @@
 package interfaces;
 
+import controller.Console;
 import datastructure.TaskList;
 import exception.InvalidInputException;
-import controller.Ui;
 
 /**
  * Represent Command that will be executed on {@link TaskList}
@@ -14,10 +14,10 @@ public interface ICommand {
      * Execution of task to be implemented
      *
      * @param taskList task list that contains all the task
-     * @param ui       user interface that will facilitate printing
+     * @param console       user interface that will facilitate printing
      * @throws InvalidInputException if input is invalid or in wrong format
      */
-    public void execute(TaskList taskList, Ui ui) throws InvalidInputException;
+    public void execute(TaskList taskList, Console console) throws InvalidInputException;
 
     /**
      * State whether this is an exit command or not

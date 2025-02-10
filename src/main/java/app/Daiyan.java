@@ -1,9 +1,9 @@
 package app;
 
 import commands.AbstractCommand;
+import controller.Console;
 import controller.Parser;
 import controller.Storage;
-import controller.Ui;
 import datastructure.TaskList;
 import exception.InvalidInputException;
 
@@ -14,9 +14,10 @@ import exception.InvalidInputException;
  */
 public class Daiyan {
 
-  private final Storage storage;
-  private TaskList taskList;
-  private final Ui ui;
+    private final Storage storage;
+    private TaskList taskList;
+    private final Console console;
+    private String commandType;
 
     /**
      * Constructs a new instance of the Daiyan application.
@@ -25,12 +26,12 @@ public class Daiyan {
      * @param filePath The file path where task data is stored.
      */
     public Daiyan(String filePath) {
-        this.ui = new Ui();
+        this.console = new Console();
         this.storage = new Storage(filePath);
         try {
             this.taskList = storage.load();
         } catch (InvalidInputException e) {
-            ui.showErrorMessage("Sorry Commander, I was unable to fetch our old logs");
+            console.showErrorMessage("Sorry Commander, I was unable to fetch our old logs");
             taskList = new TaskList();
         }
     }
@@ -41,21 +42,40 @@ public class Daiyan {
     public void run() {
         Parser parser = new Parser(storage);
 
-        this.ui.showWelcomeMessage();
-        ;
+        this.console.showWelcomeMessage();
         boolean isRunning = true;
         while (isRunning) {
-            String input = ui.readCommand();
+            String input = console.readCommand();
             try {
                 AbstractCommand command = parser.parse(input);
-                command.execute(this.taskList, this.ui);
+                command.execute(this.taskList, this.console);
                 if (command.isExit()) {
                     isRunning = false;
                 }
             } catch (InvalidInputException e) {
-                ui.showErrorMessage(e.getMessage());
+                console.showErrorMessage(e.getMessage());
             }
         }
+    }
+
+    public String getStartUpResponse() {
+        return this.console.showWelcomeMessage();
+    }
+    public String getResponse(String input) {
+        Parser parser = new Parser(this.storage);
+        try {
+            AbstractCommand c = parser.parse(input);
+            c.execute(taskList, console);
+            commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (InvalidInputException e) {
+            commandType = "Error";
+            return e.getMessage();
+        }
+    }
+
+    public String getCommandType() {
+        return commandType;
     }
 
     /**

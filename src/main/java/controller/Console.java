@@ -6,14 +6,14 @@ import java.util.Scanner;
  * {@code Ui} class responsible to reading Sys in and writing to Sys out.
  * Handles printing messages as well as error messages
  */
-public class Ui {
+public class Console {
     private static final String LINE_BREAK = "\n__________________________________________\n";
     private final Scanner scanner;
 
     /**
      * Construct an instance of {@code Ui} class with a scanner
      */
-    public Ui() {
+    public Console() {
         this.scanner = new Scanner(System.in);
     }
 
@@ -29,20 +29,23 @@ public class Ui {
     /**
      * Prints standard welcome message when starting the app
      */
-    public void showWelcomeMessage() {
+    public String showWelcomeMessage() {
         String asciiArt = " ____   ____   _ __  __ ____   __  _ \n" +
                 "| _) \\ / () \\ | |\\ \\/ // () \\ |  \\| |\n" +
                 "|____//__/\\__\\|_| |__|/__\\/__\\|_|\\__|";
-        System.out.println(asciiArt);
-        System.out.println(LINE_BREAK + "Hello I'm app.Daiyan What can I do for you?" + LINE_BREAK);
-        System.out.print("How may I assist you commander?" + LINE_BREAK);
+        String message = asciiArt + LINE_BREAK + "Hello I'm app.Daiyan What can I do for you?"
+                + LINE_BREAK + "How may I assist you commander?" + LINE_BREAK;
+        System.out.println(message);
+        return message;
     }
 
     /**
      * prints standard goodbye message when exiting the app
      */
-    public void showGoodbyeMessage() {
-        System.out.println("Bye, hope to see you again Commander." + LINE_BREAK);
+    public String showGoodbyeMessage() {
+        String message = "Bye, hope to see you again Commander." + LINE_BREAK;
+        System.out.println(message);
+        return message;
     }
 
     /**

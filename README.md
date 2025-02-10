@@ -6,7 +6,7 @@ This is a project by NUS school of computing for the mod CS2103T. I named the ma
 |____//__/\__\|_| |__|/__\/__\|_|\__|
 ```
 __________________________________________
-![app.Daiyan](https://github.com/lyhthaddeus/ip/blob/master/app.Daiyan.png) 
+![app.Daiyan](https://github.com/lyhthaddeus/ip/blob/master/Daiyan.png)
 
 Hello I'm app.Daiyan
 What can I do for you?

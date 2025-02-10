@@ -1,6 +1,6 @@
 package commands;
 
-import controller.Ui;
+import controller.Console;
 import datastructure.TaskList;
 import exception.InvalidInputException;
 
@@ -24,11 +24,12 @@ public class MarkCommand extends AbstractCommand {
      * user interface to print message
      *
      * @param taskList task list that contains all the task
-     * @param ui       user interface that will facilitate printing
+     * @param console       user interface that will facilitate printing
      * @throws InvalidInputException if input is invalid or in wrong format
      */
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidInputException {
-        ui.showTaskMessage(taskList.mark(id));
+    public void execute(TaskList taskList, Console console) throws InvalidInputException {
+        this.message = taskList.mark(id);
+        console.showTaskMessage(this.message);
     }
 }

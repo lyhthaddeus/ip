@@ -1,6 +1,6 @@
 package commands;
 
-import controller.Ui;
+import controller.Console;
 import datastructure.TaskList;
 import exception.InvalidInputException;
 
@@ -27,11 +27,12 @@ public class FindCommand extends AbstractCommand {
      * j
      *
      * @param taskList task list that contains all the task
-     * @param ui       user interface that will facilitate printing
+     * @param console       user interface that will facilitate printing
      * @throws InvalidInputException for Exception with syntax and invalid inputs
      */
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidInputException {
-        ui.showTaskMessage(taskList.find(keyword));
+    public void execute(TaskList taskList, Console console) throws InvalidInputException {
+        this.message = taskList.find(keyword);
+        console.showTaskMessage(this.message);
     }
 }

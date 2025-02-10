@@ -1,0 +1,75 @@
+ ____   ____   _ __  __ ____   __  _ 
+| _) \ / () \ | |\ \/ // () \ |  \| |
+|____//__/\__\|_| |__|/__\/__\|_|\__|
+
+__________________________________________
+Hello I'm app.Daiyan What can I do for you?
+__________________________________________
+
+How may I assist you commander?
+__________________________________________
+Commander, currently you have no outstanding task
+__________________________________________
+
+Task has been successfully added
+[T][ ] abstractTask
+Commander, you currently have 1 tasks
+__________________________________________
+
+Invalid date format Commander. Pleaser use d/M/yyyy HHmm (e.g., 2/12/1989 1800).
+__________________________________________
+
+Invalid date format Commander. Pleaser use d/M/yyyy HHmm (e.g., 2/12/1989 1800).
+__________________________________________
+
+1. [T][ ] abstractTask
+
+__________________________________________
+
+Commander, the task has been successfully deleted
+[T][ ] abstractTask
+Commander, you currently have 0 tasks
+__________________________________________
+
+Commander, currently you have no outstanding task
+__________________________________________
+
+Sorry Commander, but I do not understand your orders.
+__________________________________________
+
+Sorry Commander, but I do not understand your orders.
+__________________________________________
+
+Apologies Commander, invalid mark format. Please use (mark <index of item>).
+__________________________________________
+
+Apologies Commander, invalid unmark format. Please use (unmark <index of item>).
+__________________________________________
+
+Apologies Commander, invalid delete format. Please use (delete <index of item>).
+__________________________________________
+
+Apologies Commander, invalid Todo format. Please use (todo <Task>).
+__________________________________________
+
+Apologies Commander, invalid Deadline format. Please use (deadline <Task> /by <Time>).
+__________________________________________
+
+Apologies Commander, invalid Event format. Please use (event <Task> /from <Time> /to <Time>).
+__________________________________________
+
+Apologies Commander, invalid Event format. Please use (event <Task> /from <Time> /to <Time>).
+__________________________________________
+
+Apologies Commander, invalid Deadline format. Please use (deadline <Task> /by <Time>).
+__________________________________________
+
+Invalid date format Commander. Pleaser use d/M/yyyy HHmm (e.g., 2/12/1989 1800).
+__________________________________________
+
+Invalid date format Commander. Pleaser use d/M/yyyy HHmm (e.g., 2/12/1989 1800).
+__________________________________________
+
+Bye, hope to see you again Commander.
+__________________________________________
+
