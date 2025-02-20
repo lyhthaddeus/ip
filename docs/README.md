@@ -86,6 +86,13 @@ Exits the application.
 | `find [keyword]`                                           | Finds all tasks containing the specified keyword.    |
 | `bye`                                                      | Exits the application.                               |
 
+## Editing the data file
+
+Data are saved automatically as a txt file [JAR file location]/data/storage.txt. Advanced users are welcome to update data directly by editing that data file.
+> [!Caution]
+> If your changes to the data file makes its format invalid, Daiyan will throw an Error Message. Hence, it is recommended to take a backup of the file before editing it.
+> Furthermore, certain edits can cause the Daiyan to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly. 
+
 ## FAQ
-Q: How do I transfer my data to another Computer? 
-A: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+Q: How do I transfer my data to another Computer? </br>
+A: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Daiyan file.
