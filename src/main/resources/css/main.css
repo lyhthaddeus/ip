@@ -19,7 +19,7 @@
 }
 
 .button:pressed {
-    -fx-background-color: #f5a97f
+    -fx-background-color: #f5a97f;
     -fx-font-size: 20px;
 }
 

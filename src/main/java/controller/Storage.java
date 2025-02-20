@@ -5,6 +5,7 @@ import taskObjects.*;
 
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
 
 import exception.InvalidInputException;
 import exception.StorageSyntaxException;
@@ -37,9 +38,9 @@ public class Storage {
         File file = new File(this.filePath);
 
         if (!file.isFile()) {
+            assert (Objects.equals(taskList.getTaskList(), "Commander, currently you have no outstanding task"));
             return taskList;
         }
-
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String readerPointer = reader.readLine();
             while (readerPointer != null) {
@@ -52,7 +53,6 @@ public class Storage {
         } catch (IOException e) {
             System.out.println("Sorry Commander, there appears to be an error fetching previous task: " + e.getMessage());
         }
-
         return taskList;
     }
 
@@ -90,13 +90,10 @@ public class Storage {
      */
     private AbstractTask parser(String input) throws InvalidInputException {
         String[] split = input.split(" \\| ");
-
         String type = split[0].trim();
         boolean isCompleted = split[1].trim().equals("1");
         String description = split[2].trim();
-
         AbstractTask returnAbstractTask;
-
         switch (type) {
         case "T":
             returnAbstractTask = new Todo(description, isCompleted);
@@ -110,7 +107,6 @@ public class Storage {
         default:
             throw new StorageSyntaxException();
         }
-
         return returnAbstractTask;
     }
 

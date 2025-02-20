@@ -24,11 +24,9 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.setMinHeight(220);
             stage.setMinWidth(417);
-
             MainWindow controller = fxmlLoader.getController();
             controller.setDaiyan(daiyan);
             controller.showWelcomeMessage();
-//            fxmlLoader.<MainWindow>getController().setDaiyan(daiyan);  // inject the Duke instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
