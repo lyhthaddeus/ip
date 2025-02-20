@@ -14,18 +14,18 @@ Whats better, this light-weight app runs purely on CLI, with added GUI for aesth
    [Oracle's official website](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
    or install it using your package manager.
 
-2. **Download the latest `.jar` file** from [here]().
+2. **Download the latest `.jar` file** from [here](https://github.com/lyhthaddeus/ip/releases).
 
 3. **Copy the file** to the folder you want to use as the home folder for your Chatty bot.
 
 4. **Open a command terminal**:
-    - `cd` into the folder where you placed the `chatty.jar` file.
+    - `cd` into the folder where you placed the `Daiyan.jar` file.
 
 5. **Run the application** using the following command:
-   ```java -jar chatty.jar```
+   ```java -jar Daiyan.jar```
 
 6. The GUI should appear in a few seconds similar to the picture below.
-   ![Screenshot of the GUI]()
+   ![Screenshot of the GUI](https://github.com/lyhthaddeus/ip/blob/master/docs/Ui.png)
 
 7. Type your commands into the text field and press Send to execute them. 
 ## Available Commands.
