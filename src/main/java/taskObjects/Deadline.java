@@ -48,6 +48,15 @@ public class Deadline extends AbstractTask {
     }
 
     /**
+     * Gets the deadline of the Deadline class
+     * @return Deadline of task
+     */
+    @Override
+    public LocalDateTime getDeadline() {
+        return this.byWhen;
+    }
+
+    /**
      * Gets the String representation of the deadline
      *
      * @return String representation of deadline

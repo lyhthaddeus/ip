@@ -2,6 +2,8 @@ package taskObjects;
 
 import exception.InvalidInputException;
 
+import java.time.LocalDateTime;
+
 /**
  * {@code Todo} class to handle task with no start or due time
  */
@@ -16,6 +18,15 @@ public class Todo extends AbstractTask {
      */
     public Todo(String description, boolean isCompleted) throws InvalidInputException {
         super(description, isCompleted, "T");
+    }
+
+    /**
+     * Returns null as Todos have no deadline
+     * @return Null
+     */
+    @Override
+    public LocalDateTime getDeadline() {
+        return null;
     }
 
     /**

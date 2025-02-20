@@ -16,7 +16,8 @@ public enum CommandTypes {
     DELETE,
     DEL,
     INVALID,
-    FIND;
+    FIND,
+    SORT;
 
     /**
      * Static method to parse command from String to the respective enum

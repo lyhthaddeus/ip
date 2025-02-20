@@ -52,6 +52,15 @@ public class Event extends AbstractTask {
     }
 
     /**
+     * Gets the end datetime for the event class
+     * @return datetime of the end of the event
+     */
+    @Override
+    public LocalDateTime getDeadline() {
+        return this.toWhen;
+    }
+
+    /**
      * Gets String representation of event
      *
      * @return String represetation of event

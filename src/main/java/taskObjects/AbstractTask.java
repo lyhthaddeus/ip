@@ -3,6 +3,9 @@ package taskObjects;
 import exception.InvalidInputException;
 import interfaces.ITask;
 
+import java.time.LocalDateTime;
+import java.util.Locale;
+
 /**
  * Abstract {@code AbstractTask} class that encapsulate parent behaviour of all Task
  */
@@ -71,6 +74,13 @@ public abstract class AbstractTask implements ITask {
         return this.type + " | " + this.isCompleted + " | "
                 + this.description;
     }
+
+    /**
+     * Abstract method to return deadline to be implemented
+     * by children class
+     * @return Deadline of task
+     */
+    public abstract LocalDateTime getDeadline();
 
     /**
      * Get the String representation of Task

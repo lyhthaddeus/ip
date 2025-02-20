@@ -7,6 +7,7 @@ import commands.ExitCommand;
 import commands.FindCommand;
 import commands.ListCommand;
 import commands.MarkCommand;
+import commands.SortCommand;
 import commands.UnmarkCommand;
 import taskObjects.*;
 
@@ -49,6 +50,9 @@ public class Parser {
 
         case LIST, LS:
             return new ListCommand();
+
+        case SORT:
+            return new SortCommand();
 
         case MARK:
             if (parsed.length < 2) {

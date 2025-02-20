@@ -1,6 +1,7 @@
 package datastructure;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import taskObjects.AbstractTask;
@@ -39,6 +40,14 @@ public class TaskList {
             result.append(count).append(". ").append(task).append("\n");
         }
         return "Here are the task that matches your search\n" + result.toString();
+    }
+
+    public String sortTasksByDeadline() {
+        tasklist.sort(Comparator.comparing(
+                AbstractTask::getDeadline, // Sort by deadline
+                Comparator.nullsLast(Comparator.naturalOrder()) // Null (todos) go last
+        ));
+        return "The task has been sorted\n" + this.getTaskList();
     }
 
     /**
