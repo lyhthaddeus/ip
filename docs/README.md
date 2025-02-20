@@ -86,4 +86,6 @@ Exits the application.
 | `find [keyword]`                                           | Finds all tasks containing the specified keyword.    |
 | `bye`                                                      | Exits the application.                               |
 
-
+## FAQ
+Q: How do I transfer my data to another Computer? 
+A: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
