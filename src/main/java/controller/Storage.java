@@ -36,7 +36,6 @@ public class Storage {
     public TaskList load() throws InvalidInputException {
         TaskList taskList = new TaskList();
         File file = new File(this.filePath);
-
         if (!file.isFile()) {
             assert (Objects.equals(taskList.getTaskList(), "Commander, currently you have no outstanding task"));
             return taskList;
